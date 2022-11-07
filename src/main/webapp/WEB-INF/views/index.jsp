@@ -11,6 +11,15 @@
     <title>index</title>
 </head>
 <body>
-<h2>안녕하세요</h2>
+<div>
+<h2>회원제 게시판</h2>
+    <button class="btn btn-primary" onclick="memberSave()">회원가입</button>
+
+</div>
 </body>
+<script>
+    const memberSave = () => {
+        location.href = "/member/save"
+    }
+</script>
 </html>

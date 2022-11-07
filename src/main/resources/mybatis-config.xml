@@ -3,6 +3,7 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
     <typeAliases>
-<!--        <typeAlias type="com.codingrecipe.ex.dto.PostDTO" alias="post" />-->
+        <typeAlias type="com.its.board.dto.MemberDTO" alias="member" />
+        <typeAlias type="com.its.board.dto.MemberFileDTO" alias="memberFile" />
     </typeAliases>
 </configuration>

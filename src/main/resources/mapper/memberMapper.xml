@@ -5,6 +5,29 @@
 
 <mapper namespace="Member">
 
+    <insert id="save" parameterType="member" useGeneratedKeys="true" keyProperty="id">
+        insert into member_table(memberEmail, memberPassword, memberName, memberMobile, fileAttached)
+            values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile}, #{fileAttached})
+    </insert>
+
+<!--    <insert id="save" parameterType="member">-->
+<!--        insert into member_table(memberEmail, memberPassword, memberName, memberMobile)-->
+<!--        values (#{memberEmail}, #{memberPassword}, #{memberName}, #{memberMobile})-->
+<!--        <selectKey keyProperty="id" resultType="long" order="AFTER">-->
+<!--            select last_insert_id()-->
+<!--        </selectKey>-->
+<!--    </insert>-->
+<!--    , #{fileAttached}-->
+
+    <insert id="saveFileName" parameterType="memberFile">
+        insert into member_file(originalFileName, storedFileName, memberId)
+            values (#{originalFileName}, #{storedFileName}, #{memberId})
+    </insert>
+
+    <select id="duplicateCheck" parameterType="String" resultType="String">
+        select memberEmail from member_table where memberEmail=#{inputEmail}
+    </select>
+
 </mapper>
 
 

@@ -8,7 +8,7 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter
 @Setter
 @ToString
-public class boardFileDTO {
+public class BoardFileDTO {
     private Long id;
     private MultipartFile boardFileName;
     private String originalFileName;

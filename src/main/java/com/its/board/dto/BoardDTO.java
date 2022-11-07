@@ -1,7 +1,6 @@
 package com.its.board.dto;
 
 import lombok.*;
-import org.springframework.web.multipart.MultipartFile;
 
 import java.sql.Timestamp;
 
@@ -10,7 +9,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @ToString
-public class boardDTO {
+public class BoardDTO {
     private Long id;
     private String boardTitle;
     private String boardWriter;

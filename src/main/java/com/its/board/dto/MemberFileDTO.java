@@ -8,10 +8,10 @@ import org.springframework.web.multipart.MultipartFile;
 @Getter
 @Setter
 @ToString
-public class memberFileDTO {
+public class MemberFileDTO {
     private Long id;
     private MultipartFile memberProfiles;
-    private String memberOriginalFileName;
-    private String memberStoredFileName;
+    private String originalFileName;
+    private String storedFileName;
     private Long memberId;
 }

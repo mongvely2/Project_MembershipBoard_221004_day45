@@ -9,7 +9,7 @@ import java.sql.Timestamp;
 @Getter
 @Setter
 @ToString
-public class commentDTO {
+public class CommentDTO {
     private Long id;
     private String commentWriter;
     private String commentContents;
