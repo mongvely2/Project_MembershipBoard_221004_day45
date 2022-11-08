@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Member;
 
 @Service
 public class MemberService {
@@ -22,7 +23,7 @@ public class MemberService {
             String storedFileName = System.currentTimeMillis() + "-" + originalFileName;    //3
             memberFileDTO.setOriginalFileName(originalFileName);  //4
             memberFileDTO.setStoredFileName(storedFileName);  //4
-            String savePath = "D:\\membershipboard_project_file\\" + storedFileName;   //5
+            String savePath = "D:\\miniproject_profiles_file\\" + storedFileName;   //5
             memberProfiles.transferTo(new File(savePath));  //6
             memberDTO.setFileAttached("Y");
             MemberDTO saveResult = memberRepository.save(memberDTO);
@@ -44,6 +45,15 @@ public class MemberService {
             return "Y";
         } else {
             return "N";
+        }
+    }
+
+    public boolean login(MemberDTO memberDTO) {
+        MemberDTO result = memberRepository.login(memberDTO);
+        if (result != null) {
+            return true;
+        } else {
+            return false;
         }
     }
 }

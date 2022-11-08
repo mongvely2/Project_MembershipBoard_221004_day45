@@ -28,6 +28,10 @@
         select memberEmail from member_table where memberEmail=#{inputEmail}
     </select>
 
+    <select id="login" parameterType="member" resultType="member">
+        select * from member_table where memberEmail=#{memberEmail} and memberPassword=#{memberPassword}
+    </select>
+
 </mapper>
 
 

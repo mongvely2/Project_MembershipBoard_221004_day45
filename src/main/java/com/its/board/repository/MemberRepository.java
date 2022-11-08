@@ -23,4 +23,8 @@ public class MemberRepository {
     public String emailDuplicateCheck(String inputEmail) {
         return sql.selectOne("Member.duplicateCheck", inputEmail);
     }
+
+    public MemberDTO login(MemberDTO memberDTO) {
+        return sql.selectOne("Member.login", memberDTO);
+    }
 }

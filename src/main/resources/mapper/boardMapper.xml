@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="Board">
+    
+    <insert id="save" parameterType="board" useGeneratedKeys="true" keyProperty="id">
+        insert into board_table(boardTitle, boardWriter, boardContents, fileAttached)
+                values (#{boardTitle}, #{boardWriter}, #{boardContents}, #{fileAttached})
+    </insert>
+    
+    <insert id="saveFileName" parameterType="boardFile">
+        insert into board_file(originalFileName, storedFileName, boardId)
+                values (#{originalFileName}, #{storedFileName}, #{boardId})
+    </insert>
+    
+    <select id="boardList" resultType="board">
+        select * from board_table order by id desc
+    </select>
+
+    <select id="pagingList" parameterType="java.util.HashMap" resultType="board">
+        select * from board_table order by id desc limit #{start}, #{limit}
+    </select>
+    
+    <select id="boardCount" resultType="Integer">
+        select count(id) from board_table
+    </select>
+
+</mapper>

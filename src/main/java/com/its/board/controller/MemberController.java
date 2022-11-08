@@ -5,8 +5,10 @@ import com.its.board.dto.MemberFileDTO;
 import com.its.board.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @Controller
@@ -23,7 +25,7 @@ public class MemberController {
     @PostMapping("/save")
     public String memberSave(@ModelAttribute MemberDTO memberDTO, MemberFileDTO memberFileDTO) throws IOException {
         memberService.memberSave(memberDTO, memberFileDTO);
-        return "index";
+        return "memberPages/memberLogin";
     }
 
     @PostMapping("/duplicateCheck")
@@ -32,6 +34,29 @@ public class MemberController {
         String checkEmail = memberService.emailDuplicateCheck(inputEmail);
         System.out.println(checkEmail);
         return checkEmail;
+    }
+
+    @GetMapping("/login")
+    public String login() {
+        return "/memberPages/memberLogin";
+    }
+
+    @PostMapping("/login")
+    public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session, Model model) {
+        boolean loginResult = memberService.login(memberDTO);
+        if (loginResult) {
+            session.setAttribute("loginEmail", memberDTO.getMemberEmail());
+            model.addAttribute("modelEmail", memberDTO.getMemberEmail());
+            return "redirect:/board/paging";
+        } else {
+            return "memberPages/memberLogin";
+        }
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "index";
     }
 
 }

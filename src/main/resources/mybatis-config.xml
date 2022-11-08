@@ -5,5 +5,7 @@
     <typeAliases>
         <typeAlias type="com.its.board.dto.MemberDTO" alias="member" />
         <typeAlias type="com.its.board.dto.MemberFileDTO" alias="memberFile" />
+        <typeAlias type="com.its.board.dto.BoardDTO" alias="board" />
+        <typeAlias type="com.its.board.dto.BoardFileDTO" alias="boardFile" />
     </typeAliases>
 </configuration>
