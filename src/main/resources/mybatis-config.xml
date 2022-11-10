@@ -7,5 +7,6 @@
         <typeAlias type="com.its.board.dto.MemberFileDTO" alias="memberFile" />
         <typeAlias type="com.its.board.dto.BoardDTO" alias="board" />
         <typeAlias type="com.its.board.dto.BoardFileDTO" alias="boardFile" />
+        <typeAlias type="com.its.board.dto.CommentDTO" alias="comment" />
     </typeAliases>
 </configuration>

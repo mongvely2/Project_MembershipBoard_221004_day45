@@ -56,4 +56,17 @@ public class MemberService {
             return false;
         }
     }
+
+    public MemberDTO updateLogin(String memberEmail) {
+        return memberRepository.updateLogin(memberEmail);
+    }
+
+    public boolean update(MemberDTO memberDTO) {
+        int result = memberRepository.update(memberDTO);
+        if (result>0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

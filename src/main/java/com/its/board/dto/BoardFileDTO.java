@@ -14,4 +14,5 @@ public class BoardFileDTO {
     private String originalFileName;
     private String storedFileName;
     private Long boardId;
+//    private BoardDTO board;
 }

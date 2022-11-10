@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -75,8 +76,33 @@ public class BoardService {
         boardRepository.updateHits(id);
     }
 
-    public BoardDTO findById(Long id) {
-        return boardRepository.findById(id);
+    public Map boardDetail(Long id) {
+        BoardDTO boardDTO = boardRepository.findById(id);
+        Map boardDetail = new LinkedHashMap();
+        boardDetail.put("findBoard", boardDTO);
+        if (boardDTO.getFileAttached().equals("Y")) {
+            BoardFileDTO boardFileDTO = boardRepository.findBoardFile(id);
+            boardDetail.put("findBoardFile", boardFileDTO);
+        }
+
+        return boardDetail;
+    }
+
+//    public BoardDTO findById(Long id) {
+//        return boardRepository.findById(id);
+//    }
+
+    public BoardDTO updateForm(Long id) {
+        return boardRepository.updateForm(id);
+    }
+
+
+    public void update(BoardDTO boardDTO) {
+        boardRepository.update(boardDTO);
+    }
+
+    public void delete(Long id) {
+        boardRepository.delete(id);
     }
 }
 

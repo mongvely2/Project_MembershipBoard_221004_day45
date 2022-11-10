@@ -27,4 +27,34 @@ public class MemberRepository {
     public MemberDTO login(MemberDTO memberDTO) {
         return sql.selectOne("Member.login", memberDTO);
     }
+
+    public MemberDTO updateLogin(String memberEmail) {
+        return sql.selectOne("Member.updateLogin", memberEmail);
+    }
+
+    public int update(MemberDTO memberDTO) {
+        return sql.update("Member.update", memberDTO);
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

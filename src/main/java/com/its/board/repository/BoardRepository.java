@@ -5,6 +5,7 @@ import com.its.board.dto.BoardFileDTO;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.ui.Model;
 
 import java.util.List;
 import java.util.Map;
@@ -41,11 +42,58 @@ public class BoardRepository {
     }
 
     public BoardDTO findById(Long id) {
-        BoardDTO boardDTO = sql.selectOne("Board.findById", id);
-        if (boardDTO.getFileAttached() == "Y") {
-            return sql.selectOne("Board.findByIdFile", id);
-        } else {
-            return boardDTO;
-        }
+        return sql.selectOne("Board.findById", id);
+    }
+
+    public BoardFileDTO findBoardFile(Long id) {
+        return sql.selectOne("Board.findByIdFile", id);
+    }
+
+//    public BoardDTO findById(Long id) {
+//        BoardDTO boardDTO = sql.selectOne("Board.findById", id);
+//        if (boardDTO.getFileAttached() == "Y") {
+//            return sql.selectOne("Board.findByIdFile", id);
+//        } else {
+//            return boardDTO;
+//        }
+//    }
+
+    public BoardDTO updateForm(Long id) {
+        return sql.selectOne("Board.updateForm", id);
+    }
+
+
+    public void update(BoardDTO boardDTO) {
+        sql.insert("Board.update", boardDTO);
+    }
+
+    public void delete(Long id) {
+        sql.delete("Board.delete", id);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

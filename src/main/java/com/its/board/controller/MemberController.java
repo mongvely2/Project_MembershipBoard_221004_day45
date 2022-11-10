@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
+import java.lang.reflect.Member;
 
 @Controller
 @RequestMapping("/member")
@@ -57,6 +58,31 @@ public class MemberController {
     public String logout(HttpSession session) {
         session.invalidate();
         return "index";
+    }
+
+    @GetMapping("/myPage")
+    public String myPage() {
+        return "/memberPages/memberMyPage";
+    }
+
+    @GetMapping("/update")
+    public String updateForm(HttpSession session, Model model) {
+        String memberEmail = (String) session.getAttribute("loginEmail");
+        MemberDTO memberDTO = memberService.updateLogin(memberEmail);
+        model.addAttribute("member", memberDTO);
+        return "memberPages/memberUpdate";
+    }
+
+    @PostMapping("/update")
+    public String update(@ModelAttribute MemberDTO memberDTO, Model model) {
+        boolean result = memberService.update(memberDTO);
+//        model.addAttribute("result", result);
+        if (result) {
+            return "memberPages/memberMyPage";
+        } else {
+            return "index";
+        }
+
     }
 
 }

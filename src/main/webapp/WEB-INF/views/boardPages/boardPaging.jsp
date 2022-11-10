@@ -31,7 +31,7 @@
             <tr>
                 <td>${board.id}</td>
                 <td>
-                    <a href="/board?id=${board.id}$page=${paging.page}" onclick="hit('${board.id}')">${board.boardTitle}</a>
+                    <a href="/board?id=${board.id}&page=${paging.page}">${board.boardTitle}</a>
                 </td>
                 <td>${board.boardWriter}</td>
                 <td>${board.boardContents}</td>
@@ -45,7 +45,8 @@
     </table>
     <a href="/" class="btn btn-dark">홈으로 이동</a>
     <a href="/board/save" class="btn btn-primary">글쓰기</a>
-    <a href="/board/logout" class="btn btn-danger">로그아웃</a>
+    <a href="/member/myPage" class="btn btn-primary">마이페이지</a>
+    <a href="/member/logout" class="btn btn-danger">로그아웃</a>
 </div>
 <div class="container">
     <ul class="pagination justify-content-center">

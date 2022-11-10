@@ -17,7 +17,7 @@
 <h2>회원제 게시판</h2>
     <button class="btn btn-primary" onclick="memberSave()">회원가입</button>
     <button class="btn btn-primary" onclick="memberLogin()">로그인</button>
-    <button class="btn btn-primary" onclick="boardList()">글목록</button>
+<%--    <button class="btn btn-primary" onclick="boardList()">글목록</button>--%>
     <button class="btn btn-primary" onclick="boardPagingList()">페이징 글목록</button>
 
 </div>
@@ -31,9 +31,9 @@
         location.href = "/member/login";
     }
 
-    const boardList = () => {
-        location.href = "/board/list";
-    }
+    // const boardList = () => {
+    //     location.href = "/board/list";
+    // }
 
     const boardPagingList = () => {
         location.href = "/board/paging";
