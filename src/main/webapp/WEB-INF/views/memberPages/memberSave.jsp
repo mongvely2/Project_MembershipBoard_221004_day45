@@ -20,8 +20,8 @@
 </head>
 <body>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<h3>회원가입 페이지</h3>
 <div class="container" id="saveDiv">
+    <h3>회원가입 페이지</h3>
     <form action="/member/save" method="post" name="saveForm" enctype="multipart/form-data">
         이메일: <input type="text" name="memberEmail" id="memberEmail" onblur="duplicateCheck()" placeholder="이메일입력"
                     class="form-control">
