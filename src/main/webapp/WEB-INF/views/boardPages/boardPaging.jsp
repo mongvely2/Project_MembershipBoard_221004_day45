@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
     <script src="/resources/js/jquery.js"></script>
 </head>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <div class="container" id="list">
     <table class="table table-striped table-hover text-center">
@@ -45,8 +46,13 @@
     </table>
     <a href="/" class="btn btn-dark">홈으로 이동</a>
     <a href="/board/save" class="btn btn-primary">글쓰기</a>
+    <c:if test="${sessionScope.loginEmail != null}">
     <a href="/member/myPage" class="btn btn-primary">마이페이지</a>
     <a href="/member/logout" class="btn btn-danger">로그아웃</a>
+    </c:if>
+    <c:if test="${sessionScope.loginEmail == 'admin'}">
+        <a href="/member/admin" class="btn btn-primary">회원관리</a>
+    </c:if>
 </div>
 <div class="container">
     <ul class="pagination justify-content-center">

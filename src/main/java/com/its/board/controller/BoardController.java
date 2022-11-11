@@ -6,6 +6,7 @@ import com.its.board.dto.CommentDTO;
 import com.its.board.dto.PageDTO;
 import com.its.board.service.BoardService;
 import com.its.board.service.CommentService;
+//import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -100,6 +101,15 @@ public class BoardController {
     public String delete(@RequestParam("id") Long id) {
         boardService.delete(id);
         return "redirect:/board/paging";
+    }
+
+    @GetMapping("/search")
+    public String search(@RequestParam("type") String type,
+                         @RequestParam("q") String q, Model model) {
+        List<BoardDTO> searchList = boardService.search(type, q);
+        model.addAttribute("boardList", searchList);
+        return "boardPages/boardList";
+
     }
 
 

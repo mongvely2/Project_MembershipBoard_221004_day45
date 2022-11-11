@@ -13,6 +13,7 @@
     <script src="/resources/js"></script>
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
     <form action="/board/save" method="post" name="saveForm" enctype="multipart/form-data">
         작성자: <input type="text" name="boardWriter" value="${sessionScope.loginEmail}" class="form-control">

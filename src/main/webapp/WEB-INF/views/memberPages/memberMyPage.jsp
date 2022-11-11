@@ -11,7 +11,7 @@
     <title>memberMyPage</title>
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
-<body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include><body>
 <a href="/member/update" class="btn btn-primary">회원정보수정</a>
 <a href="/board/paging" class="btn btn-primary">게시판</a>
 </body>

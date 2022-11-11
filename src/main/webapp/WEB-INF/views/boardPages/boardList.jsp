@@ -15,6 +15,7 @@
     <script src="/resources/js/jquery.js"></script>
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container" id="list">
     <table class="table table-striped table-hover text-center">
         <tr>
@@ -43,7 +44,7 @@
     </table>
     <a href="/" class="btn btn-dark">홈으로 이동</a>
     <a href="/board/save" class="btn btn-primary">글쓰기</a>
-    <a href="/board/logout" class="btn btn-danger">로그아웃</a>
+    <a href="/board/paging" class="btn btn-primary">글목록</a>
 
 </div>
 

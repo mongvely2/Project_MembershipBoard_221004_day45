@@ -16,6 +16,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
     <table class="table table-hover">
         <tr>
@@ -161,8 +162,21 @@
     }
 
     const deleteFn = () => {
-        location.href ="/board/delete?id=" + id;
-        alert("삭제되었습니다")
+        if (confirm("해당 게시글을 삭제하시겠습니까")) {
+            location.href="/board/delete?id=" + id;
+            alert("삭제되었습니다")
+        } else {
+            alert("취소하셨습니다")
+        }
+        // if (confirm("해당 게시글을 삭제하시겠습니까?")) {
+        //     location.href ="/board/delete?id=" + id;
+        //     alert("삭제되었습니다")
+        //     } else {
+        //         alert("취소되었습니다")
+        //     }
+        // }
+        // location.href ="/board/delete?id=" + id;
+        // alert("삭제되었습니다")
     }
 
 

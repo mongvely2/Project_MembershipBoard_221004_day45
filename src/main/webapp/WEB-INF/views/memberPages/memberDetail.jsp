@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
   <table class="table">
 

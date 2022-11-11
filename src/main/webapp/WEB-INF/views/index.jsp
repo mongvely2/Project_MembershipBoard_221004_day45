@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -11,23 +12,34 @@
     <title>index</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
     <script src="/resources/js/jquery.js"></script>
+    <style>
+        #indexFn {
+            width: 500px;
+        }
+    </style>
 </head>
 <body>
-<div>
+<jsp:include page="header.jsp" flush="false"></jsp:include>
+<div class="container" id="indexFn">
 <h2>회원제 게시판</h2>
-    <button class="btn btn-primary" onclick="memberSave()">회원가입</button>
-    <button class="btn btn-primary" onclick="memberLogin()">로그인</button>
+    <button class="btn btn-primary" onclick="indexSave()">회원가입</button>
+    <c:if test="${sessionScope.loginEmail == null}">
+    <button class="btn btn-primary" onclick="indexLogin()">로그인</button>
+    </c:if>
+    <c:if test="${sessionScope.loginEmail != null}">
+    <button class="btn btn-primary" onclick="indexLogout()">로그아웃</button>
+    </c:if>
 <%--    <button class="btn btn-primary" onclick="boardList()">글목록</button>--%>
-    <button class="btn btn-primary" onclick="boardPagingList()">페이징 글목록</button>
+    <button class="btn btn-primary" onclick="indexPaging()">페이징 글목록</button>
 
 </div>
 </body>
 <script>
-    const memberSave = () => {
+    const indexSave = () => {
         location.href = "/member/save";
     }
 
-    const memberLogin = () => {
+    const indexLogin = () => {
         location.href = "/member/login";
     }
 
@@ -35,8 +47,12 @@
     //     location.href = "/board/list";
     // }
 
-    const boardPagingList = () => {
+    const indexPaging = () => {
         location.href = "/board/paging";
+    }
+
+    const indexLogout = () => {
+        location.href = "/member/logout";
     }
 </script>
 </html>

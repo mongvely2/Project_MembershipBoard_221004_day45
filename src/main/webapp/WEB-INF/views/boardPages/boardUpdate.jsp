@@ -13,6 +13,7 @@
     <script src="/resources/js"></script>
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
     <form action="/board/update" name="updateResult" method="post">
         번호: <input type="text" name="id" value="${result.id}" class="form-control" readonly>

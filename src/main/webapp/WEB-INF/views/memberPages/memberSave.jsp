@@ -11,9 +11,15 @@
     <title>memberSave</title>
     <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
     <script src="/resources/js/jquery.js"></script>
+    <style>
+        #saveDiv, #buttonFn {
+            width: 500px;
+        }
+    </style>
 
 </head>
 <body>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <h3>회원가입 페이지</h3>
 <div class="container" id="saveDiv">
     <form action="/member/save" method="post" name="saveForm" enctype="multipart/form-data">
@@ -31,9 +37,11 @@
                       class="form-control">
         <div><span id="expMobile"></span></div>
         프로필사진: <input type="file" name="memberProfiles" class="form-control">
-        <input type="button" value="가입하기" onclick="save()" class="btn btn-primary">
     </form>
-    <a href="/" class="btn btn-dark">홈으로 이동</a>
+</div>
+<div class="container" id="buttonFn">
+<input type="button" value="가입하기" onclick="save()" class="btn btn-primary">
+<a href="/" class="btn btn-dark">홈으로 이동</a>
 </div>
 </body>
 <script>

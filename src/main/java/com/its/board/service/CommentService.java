@@ -18,8 +18,6 @@ public class CommentService {
     }
 
     public List<CommentDTO> commentList(Long boardId) {
-
-        System.out.println("코멘트 서비스단"+boardId);
        return commentRepository.commentList(boardId);
     }
 

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Member;
+import java.util.List;
 
 @Controller
 @RequestMapping("/member")
@@ -75,6 +76,7 @@ public class MemberController {
 
     @PostMapping("/update")
     public String update(@ModelAttribute MemberDTO memberDTO, Model model) {
+        System.out.println("memberDTO = " + memberDTO);
         boolean result = memberService.update(memberDTO);
 //        model.addAttribute("result", result);
         if (result) {
@@ -83,6 +85,24 @@ public class MemberController {
             return "index";
         }
 
+    }
+
+    @GetMapping("/admin")
+    public String admin() {
+        return "/memberPages/memberAdmin";
+    }
+
+    @GetMapping("/memberList")
+    public String memberList(Model model) {
+        List<MemberDTO> memberDTO = memberService.memberList();
+        model.addAttribute("memberList", memberDTO);
+        return "/memberPages/memberList";
+    }
+
+    @GetMapping("/delete")
+    public String delete(@RequestParam("id") Long id) {
+        memberService.delete(id);
+        return "redirect: /member/memberList";
     }
 
 }
