@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: user
@@ -9,10 +10,13 @@
 <html>
 <head>
     <title>memberMyPage</title>
-  <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
-<jsp:include page="../header.jsp" flush="false"></jsp:include><body>
-<a href="/member/update" class="btn btn-primary">회원정보수정</a>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
+<body>
+<c:if test="${sessionScope.loginEmail != 'admin'}">
+    <a href="/member/update" class="btn btn-primary">회원정보수정</a>
+</c:if>
 <a href="/board/paging" class="btn btn-primary">게시판</a>
 </body>
 </html>

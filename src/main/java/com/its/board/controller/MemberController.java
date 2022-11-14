@@ -26,15 +26,18 @@ public class MemberController {
 
     @PostMapping("/save")
     public String memberSave(@ModelAttribute MemberDTO memberDTO, MemberFileDTO memberFileDTO) throws IOException {
-        memberService.memberSave(memberDTO, memberFileDTO);
-        return "memberPages/memberLogin";
+        try {
+            memberService.memberSave(memberDTO, memberFileDTO);
+            return "memberPages/memberLogin";
+        } catch (Exception a) {
+            return "memberPages/memberSave";
+        }
     }
 
     @PostMapping("/duplicateCheck")
-    public @ResponseBody String emailDuplicateCheck(@RequestParam("inputEmail") String inputEmail) {
-        System.out.println("controller_inputEmail = " + inputEmail);
+    public @ResponseBody String emailDuplicateCheck(@RequestParam("inputEmail") String inputEmail, Model model) {
         String checkEmail = memberService.emailDuplicateCheck(inputEmail);
-        System.out.println(checkEmail);
+        model.addAttribute("dbEmail", checkEmail);
         return checkEmail;
     }
 

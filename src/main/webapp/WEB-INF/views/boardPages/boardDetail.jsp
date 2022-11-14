@@ -162,7 +162,7 @@
     }
 
     const deleteFn = () => {
-        if (confirm("해당 게시글을 삭제하시겠습니까")) {
+        if (confirm("해당 게시글을 삭제하시겠습니까?")) {
             location.href="/board/delete?id=" + id;
             alert("삭제되었습니다")
         } else {

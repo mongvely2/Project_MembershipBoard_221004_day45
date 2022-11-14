@@ -45,14 +45,14 @@
 </div>
 </body>
 <script>
-    // const save = () => {
-    //     document.saveForm.submit();
-    // }
+    const passExp = /^(?=.*[a-z])(?=.*[\d])[a-z\d]{5,10}$/;
+    const mobileExp = /^\d{3}-\d{4}-\d{4}$/;
+    const dbEmail = '${dbEmail}';
+
 
     const duplicateCheck = () => {
         const inputEmail = document.getElementById("memberEmail").value;
         const checkResult = document.getElementById("email-dup-check");
-        console.log(inputEmail);
 
         $.ajax({
             type: "post",
@@ -62,7 +62,6 @@
                 inputEmail: inputEmail
             },
             success: function (result) {
-                console.log("savejsp:" + result)
                 if (result == "Y") {
                     checkResult.innerHTML = "사용가능한 이메일 입니다!"
                 } else {
@@ -79,8 +78,8 @@
     const passCheck = () => {
         const inputPass = document.getElementById("memberPassword").value;
         const expPass = document.getElementById("expPass");
-        const exp = /^(?=.*[a-z])(?=.*[\d])[a-z\d]{5,10}$/;
-        if (!inputPass.match(exp)) {
+
+        if (!inputPass.match(passExp)) {
             expPass.innerHTML = "영문 소문자(필수), 숫자(필수)를 포함하여 5~10 비밀번호를 생성해주세요!"
             expPass.style.color = "red";
             return false;
@@ -94,23 +93,24 @@
     const mobileCheck = () => {
         const inputMobile = document.getElementById("memberMobile").value;
         const expMobile = document.getElementById("expMobile");
-        const exp = /^\d{3}-\d{4}-\d{4}$/;
-        if (!inputMobile.match(exp)) {
+
+        if (!inputMobile.match(mobileExp)) {
             expMobile.innerHTML = "'-'를 포함한 전화번호 8자리를 입력하세요!"
             expMobile.style.color = "red";
-            return false;
+
         } else {
             expMobile.innerHTML = "사용가능합니다!";
             expMobile.style.color = "green";
-            return true;
+
         }
     }
 
     const save = () => {
-        const emailCheck = document.getElementById("memberEmail");
-        const passCheck = document.getElementById("memberPassword");
-        const nameCheck = document.getElementById("memberName");
-        const mobileCheck = document.getElementById("memberMobile");
+
+        const emailCheck = document.getElementById("memberEmail").value;
+        const passCheck = document.getElementById("memberPassword").value;
+        const nameCheck = document.getElementById("memberName").value;
+        const mobileCheck = document.getElementById("memberMobile").value;
 
         if (document.saveForm.memberEmail.value == "") {
             alert("이메일을 입력하세요")
@@ -128,7 +128,15 @@
             alert("연락처를 입력하세요")
             return false;
         }
+        if (dbEmail != emailCheck &&
+            passCheck.match(passExp) &&
+            nameCheck.length>=1 &&
+            mobileCheck.match(mobileExp)) {
+
         document.saveForm.submit();
+        } else {
+            alert("올바른 회원가입 정보를 입력하세요!")
+        }
     }
 </script>
 </html>

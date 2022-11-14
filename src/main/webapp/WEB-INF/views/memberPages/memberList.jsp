@@ -46,8 +46,12 @@
 </body>
 <script>
     const deleteMember = (id) => {
-        // const id = document.getElementById(cli);
+        if (confirm("해당 회원을 삭제하시겠습니까?")) {
         location.href = "/member/delete?id="+id;
+        alert("삭제되었습니다")
+        } else {
+            alert("취소하셨습니다")
+        }
     }
 </script>
 </html>
