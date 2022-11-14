@@ -64,7 +64,7 @@
 <div class="container mt-5" id="comment-write">
     <div class="input-group-sm mb-3">
         <div class="form-floating">
-            <input type="text" id="commentWriter" class="form-control" value="${sessionScope.loginEmail}">
+            <input type="text" id="commentWriter" class="form-control" value="${sessionScope.loginEmail}" readonly>
             <label for="commentWriter">작성자</label>
         </div>
         <div class="form-floating">
@@ -106,8 +106,11 @@
         const board = '${board.id}';
         const data = document.getElementById("comment-list")
 
-
-
+        <c:if test="${sessionScope.loginEmail == null}">
+        alert("로그인 후 이용가능합니다! 회원가입 서비스로 연결합니다")
+        location.href = "/member/save";
+        </c:if>
+        <c:if test="${sessionScope.loginEmail != null}">
         $.ajax({
             type: "post",
             url: "comment/save",
@@ -141,13 +144,14 @@
 
                 document.getElementById('comment-list').innerHTML = output;
                 // 새로 작성하는 칸을 위해 공란으로 표시
-                document.getElementById('commentWriter').value = '';
+                document.getElementById('commentWriter').value = '${sessionScope.loginEmail}';
                 document.getElementById('commentContents').value = '';
             },
-            error: function() {
+            error: function () {
                 console.log("실패");
             }
         });
+        </c:if>
     }
 
     const id = '${board.id}';
@@ -163,7 +167,7 @@
 
     const deleteFn = () => {
         if (confirm("해당 게시글을 삭제하시겠습니까?")) {
-            location.href="/board/delete?id=" + id;
+            location.href = "/board/delete?id=" + id;
             alert("삭제되었습니다")
         } else {
             alert("취소하셨습니다")

@@ -16,6 +16,7 @@
             width: 500px;
             margin-top: 30px;
         }
+
         /*#loginBt{*/
         /*    position: center;*/
         /*}*/
@@ -29,8 +30,8 @@
         <input type="text" name="memberPassword" placeholder="비밀번호입력" class="form-control">
     </form>
     <div class="container" id="loginBt">
-    <input type="button" value="로그인" onclick="loginMember()" class="btn btn-primary">
-    <a href="/" class="btn btn-dark">홈으로 이동</a>
+        <input type="button" value="로그인" onclick="loginMember()" class="btn btn-primary">
+        <a href="/" class="btn btn-dark">홈으로 이동</a>
     </div>
 </div>
 </body>

@@ -37,7 +37,7 @@ public class BoardController {
         return "redirect:/board/paging";
     }
 
-//    @GetMapping
+    //    @GetMapping
 //    public String findById(@RequestParam("id") Long id, Model model,
 //                           @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
 //        boardService.updateHits(id);

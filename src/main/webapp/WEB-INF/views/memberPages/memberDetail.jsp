@@ -9,37 +9,37 @@
 <html>
 <head>
     <title>memberDetail</title>
-  <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="/resources/css/bootstrap.rtl.min.css">
 </head>
 <body>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
-  <table class="table">
+    <table class="table">
 
-    <tr>
-      <th>번호</th>
-      <td>${result.id}</td>
-    </tr>
-    <tr>
-      <th>이메일</th>
-      <td>${result.memberEmail}</td>
-    </tr>
-    <tr>
-      <th>비밀번호</th>
-      <td>${result.memberPassword}</td>
-    </tr>
-    <tr>
-      <th>이름</th>
-      <td>${result.memberName}</td>
-    </tr>
-    <tr>
-      <th>연락처</th>
-      <td>${result.memberMobile}</td>
-    </tr>
+        <tr>
+            <th>번호</th>
+            <td>${result.id}</td>
+        </tr>
+        <tr>
+            <th>이메일</th>
+            <td>${result.memberEmail}</td>
+        </tr>
+        <tr>
+            <th>비밀번호</th>
+            <td>${result.memberPassword}</td>
+        </tr>
+        <tr>
+            <th>이름</th>
+            <td>${result.memberName}</td>
+        </tr>
+        <tr>
+            <th>연락처</th>
+            <td>${result.memberMobile}</td>
+        </tr>
 
-    <a class="btn btn-dark" href="/">홈으로 이동</a>
-    <a class="btn btn-primary" href="/board/paging">페이징 목록</a>
-  </table>
+        <a class="btn btn-dark" href="/">홈으로 이동</a>
+        <a class="btn btn-primary" href="/board/paging">페이징 목록</a>
+    </table>
 </div>
 
 </body>

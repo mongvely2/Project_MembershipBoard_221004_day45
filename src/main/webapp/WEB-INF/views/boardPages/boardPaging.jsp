@@ -45,10 +45,11 @@
         </c:forEach>
     </table>
     <a href="/" class="btn btn-dark">홈으로 이동</a>
-    <a href="/board/save" class="btn btn-primary">글쓰기</a>
+    <input type="button" value="글쓰기" onclick="writerBt()" class="btn btn-primary">
+<%--    <a href="/board/save" class="btn btn-primary">글쓰기</a>--%>
     <c:if test="${sessionScope.loginEmail != null}">
-    <a href="/member/myPage" class="btn btn-primary">마이페이지</a>
-    <a href="/member/logout" class="btn btn-danger">로그아웃</a>
+        <a href="/member/myPage" class="btn btn-primary">마이페이지</a>
+        <a href="/member/logout" class="btn btn-danger">로그아웃</a>
     </c:if>
     <c:if test="${sessionScope.loginEmail == 'admin'}">
         <a href="/member/admin" class="btn btn-primary">회원관리</a>
@@ -59,7 +60,7 @@
         <c:choose>
             <%-- 현재 페이지가 1페이지면 이전 글자만 보여줌 --%>
             <c:when test="${paging.page<=1}">
-<%--                disabled : 비활성화 하겠다, 이전 버튼 비활성화     --%>
+                <%--                disabled : 비활성화 하겠다, 이전 버튼 비활성화     --%>
                 <li class="page-item disabled">
                     <a class="page-link">[이전]</a>
                 </li>
@@ -77,7 +78,7 @@
             <c:choose>
                 <%-- 요청한 페이지에 있는 경우 현재 페이지 번호는 텍스트만 보이게 --%>
                 <c:when test="${i eq paging.page}">
-<%--                                     active: 파란배경에 버튼 비활성화 역할 수행       --%>
+                    <%--                                     active: 파란배경에 버튼 비활성화 역할 수행       --%>
                     <li class="page-item active">
                         <a class="page-link">${i}</a>
                     </li>
@@ -85,7 +86,7 @@
 
                 <c:otherwise>
                     <li class="page-item">
-<%--                                                                  i>i: 클릭한 페이지로 이동하는 코드         --%>
+                            <%--                                                                  i>i: 클릭한 페이지로 이동하는 코드         --%>
                         <a class="page-link" href="/board/paging?page=${i}">${i}</a>
                     </li>
                 </c:otherwise>
@@ -107,6 +108,17 @@
     </ul>
 </div>
 </body>
+<script>
+    const writerBt = () => {
+        <c:if test="${sessionScope.loginEmail != null}">
+        location.href = "/board/save";
+        </c:if>
+        <c:if test="${sessionScope.loginEmail == null}">
+        alert("로그인 후 이용가능합니다! 회원가입 서비스로 연결합니다")
+        location.href = "/member/save";
+        </c:if>
+    }
+</script>
 </html>
 
 

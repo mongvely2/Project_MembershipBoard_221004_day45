@@ -18,7 +18,7 @@ public class CommentService {
     }
 
     public List<CommentDTO> commentList(Long boardId) {
-       return commentRepository.commentList(boardId);
+        return commentRepository.commentList(boardId);
     }
 
     public List<CommentDTO> commentList_Up(BoardDTO boardDTO) {

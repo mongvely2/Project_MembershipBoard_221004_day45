@@ -40,14 +40,14 @@
     </form>
 </div>
 <div class="container" id="buttonFn">
-<input type="button" value="가입하기" onclick="save()" class="btn btn-primary">
-<a href="/" class="btn btn-dark">홈으로 이동</a>
+    <input type="button" value="가입하기" onclick="save()" class="btn btn-primary">
+    <a href="/" class="btn btn-dark">홈으로 이동</a>
 </div>
 </body>
 <script>
     const passExp = /^(?=.*[a-z])(?=.*[\d])[a-z\d]{5,10}$/;
     const mobileExp = /^\d{3}-\d{4}-\d{4}$/;
-    const dbEmail = '${dbEmail}';
+    <%--const dbEmail = '${dbEmail}';--%>
 
 
     const duplicateCheck = () => {
@@ -128,12 +128,10 @@
             alert("연락처를 입력하세요")
             return false;
         }
-        if (dbEmail != emailCheck &&
-            passCheck.match(passExp) &&
-            nameCheck.length>=1 &&
+        if (passCheck.match(passExp) &&
+            nameCheck.length >= 1 &&
             mobileCheck.match(mobileExp)) {
-
-        document.saveForm.submit();
+            document.saveForm.submit();
         } else {
             alert("올바른 회원가입 정보를 입력하세요!")
         }

@@ -23,15 +23,15 @@
 <body>
 <jsp:include page="header.jsp" flush="false"></jsp:include>
 <div class="container" id="indexFn">
-<h2>회원제 게시판 HOME</h2>
+    <h2>회원제 게시판 HOME</h2>
     <button class="btn btn-primary" onclick="indexSave()">회원가입</button>
     <c:if test="${sessionScope.loginEmail == null}">
-    <button class="btn btn-primary" onclick="indexLogin()">로그인</button>
+        <button class="btn btn-primary" onclick="indexLogin()">로그인</button>
     </c:if>
     <c:if test="${sessionScope.loginEmail != null}">
-    <button class="btn btn-primary" onclick="indexLogout()">로그아웃</button>
+        <button class="btn btn-primary" onclick="indexLogout()">로그아웃</button>
     </c:if>
-<%--    <button class="btn btn-primary" onclick="boardList()">글목록</button>--%>
+    <%--    <button class="btn btn-primary" onclick="boardList()">글목록</button>--%>
     <button class="btn btn-primary" onclick="indexPaging()">페이징 글목록</button>
 </div>
 </body>

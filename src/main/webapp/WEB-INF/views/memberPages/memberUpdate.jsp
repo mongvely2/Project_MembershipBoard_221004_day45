@@ -49,7 +49,7 @@
             return false;
         }
         if (checkUpdate && checkPass) {
-            if(newPassword) {
+            if (newPassword) {
                 document.updateForm.submit();
             } else {
                 alert("영문 소문자(필수), 숫자(필수)를 포함하여 5~10 비밀번호를 변경해주세요!");

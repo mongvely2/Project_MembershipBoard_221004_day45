@@ -21,7 +21,7 @@ public class CommentController {
     public @ResponseBody List<CommentDTO> commentSave(@ModelAttribute CommentDTO commentDTO) {
         commentService.commentSave(commentDTO);
         List<CommentDTO> result = commentService.commentList(commentDTO.getBoardId());
-        System.out.println("코멘트 컨트롤러"+result);
+        System.out.println("코멘트 컨트롤러" + result);
         //        ajax 에서 비동기식으로 보여주기에 return 값이 jsp 주소가 아님
         return result;
     }
