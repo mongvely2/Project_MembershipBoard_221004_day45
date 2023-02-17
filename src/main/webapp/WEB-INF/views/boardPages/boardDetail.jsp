@@ -47,7 +47,7 @@
             <tr>
                 <th>file</th>
                 <td>
-                    <img src="${pageContext.request.contextPath}/upload/${boardFile.storedFileName}"
+                    <img src="${pageContext.request.contextPath}/upload_board/${boardFile.storedFileName}"
                          alt="" width="200" height="200">
                 </td>
             </tr>

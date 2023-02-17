@@ -37,6 +37,7 @@
 </body>
 <script>
     const loginMember = () => {
+        console.log("함수호출")
         document.loginSave.submit();
     }
 </script>

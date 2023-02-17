@@ -31,7 +31,7 @@
     <c:if test="${sessionScope.loginEmail != null}">
         <button class="btn btn-primary" onclick="indexLogout()">로그아웃</button>
     </c:if>
-    <%--    <button class="btn btn-primary" onclick="boardList()">글목록</button>--%>
+        <button class="btn btn-primary" onclick="boardList()">글목록</button>
     <button class="btn btn-primary" onclick="indexPaging()">페이징 글목록</button>
 </div>
 </body>
@@ -44,9 +44,9 @@
         location.href = "/member/login";
     }
 
-    // const boardList = () => {
-    //     location.href = "/board/list";
-    // }
+    const boardList = () => {
+        location.href = "/board/list";
+    }
 
     const indexPaging = () => {
         location.href = "/board/paging";

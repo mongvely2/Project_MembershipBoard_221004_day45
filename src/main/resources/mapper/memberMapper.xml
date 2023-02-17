@@ -25,7 +25,9 @@
     </insert>
 
     <select id="duplicateCheck" parameterType="String" resultType="String">
-        select memberEmail from member_table where memberEmail=#{inputEmail}
+        select memberEmail
+        from member_table
+        where memberEmail=#{inputEmail}
     </select>
 
     <select id="login" parameterType="member" resultType="member">

@@ -16,7 +16,7 @@
 <body>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <div class="container">
-    <form action="/board/save" method="post" name="saveForm" enctype="multipart/form-data">
+    <form action="0  /board/save" method="post" name="saveForm" enctype="multipart/form-data">
         작성자: <input type="text" name="boardWriter" value="${sessionScope.loginEmail}" class="form-control">
         제목: <input type="text" name="boardTitle" placeholder="제목입력" class="form-control">
         내용: <textarea name="boardContents" cols="30" rows="10" placeholder="내용입력" class="form-control"></textarea>

@@ -64,6 +64,7 @@ public class BoardController {
     @GetMapping("/list")
     public String boardList(Model model) {
         List<BoardDTO> boardList = boardService.boardList();
+        System.out.println("리스트 boardList = " + boardList);
         model.addAttribute("boardList", boardList);
         return "/boardPages/boardList";
     }
@@ -71,7 +72,9 @@ public class BoardController {
     @GetMapping("/paging")
     public String pagingList(Model model,
                              @RequestParam(value = "page", required = false, defaultValue = "1") int page) {
+        System.out.println(" page = " + page);
         List<BoardDTO> pagingList = boardService.pagingList(page);
+        System.out.println("페이징처리 pagingList = " + pagingList);
         PageDTO pageDTO = boardService.pagingParam(page);
         model.addAttribute("boardList", pagingList);
         model.addAttribute("paging", pageDTO);

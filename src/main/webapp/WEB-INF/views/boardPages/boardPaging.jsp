@@ -43,7 +43,7 @@
                 <td>${board.fileAttached}</td>
             </tr>
         </c:forEach>
-    </table>
+    </table>,
     <a href="/" class="btn btn-dark">홈으로 이동</a>
     <input type="button" value="글쓰기" onclick="writerBt()" class="btn btn-primary">
 <%--    <a href="/board/save" class="btn btn-primary">글쓰기</a>--%>
